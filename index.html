@@ -212,16 +212,18 @@
             justify-content: center;
             align-items: center;
             padding: 0;
+            flex-wrap: wrap;
         }
 
         .nav li a {
             display: block;
-            padding: 20px 25px;
+            padding: 20px 22px;
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
             font-weight: 500;
+            font-size: 0.95em;
         }
 
         .nav li a:hover, .nav li a.active {
@@ -395,6 +397,73 @@
         [dir="ltr"] .skill-item:hover { transform: translateX(5px); }
         [dir="rtl"] .skill-item:hover { transform: translateX(-5px); }
         .skill-item span:first-child { font-weight: 500; }
+
+        /* Tech Skills & Projects Section */
+        .tech-skills-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .tech-card, .project-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        .tech-card:hover, .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .tech-card-header, .project-card-header {
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .project-card-header {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: white;
+            border-bottom: none;
+            border-radius: 15px 15px 0 0;
+        }
+        .tech-card-icon, .project-card-icon {
+            font-size: 2.5em;
+            color: #3498db;
+        }
+        .project-card-icon { color: white; }
+        .tech-card-title, .project-card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .project-card-title { color: white; }
+        .tech-card-body, .project-card-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        .tech-card-body p, .project-card-body p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        .powerbi-link {
+            display: block;
+            margin-top: auto;
+            padding-top: 15px;
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: #2c3e50;
+            border: 1px dashed #3498db;
+        }
+        .powerbi-link i {
+            color: #3498db;
+        }
         
         /* Footer */
         .footer { background: #2c3e50; color: white; text-align: center; padding: 50px 40px; }
@@ -418,7 +487,7 @@
             
             .nav.hidden { transform: translateY(-100%); }
             .nav ul { flex-direction: column; text-align: center; }
-            .nav li a { padding: 15px 20px; }
+            .nav li a { padding: 15px; }
             
             [dir="ltr"] #lang-toggle { margin-left: 0; margin-top: 10px; margin-bottom: 10px; }
             [dir="rtl"] #lang-toggle { margin-right: 0; margin-top: 10px; margin-bottom: 10px; }
@@ -438,7 +507,7 @@
 
             .whatsapp-btn, .floating-download-btn { width: 50px; height: 50px; font-size: 20px; }
 
-            .skills-container { grid-template-columns: 1fr; }
+            .skills-container, .tech-skills-grid, .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -487,9 +556,11 @@
         <nav class="nav">
             <ul>
                 <li><a href="#about" data-key="navAbout">About</a></li>
-                <li><a href="#experience" data-key="navExperience">Experience</a></li>
-                <li><a href="#skills" data-key="navSkills">Skills</a></li>
                 <li><a href="#education" data-key="navEducation">Education</a></li>
+                <li><a href="#experience" data-key="navExperience">Experience</a></li>
+                <li><a href="#projects" data-key="navProjects">Key Projects</a></li>
+                <li><a href="#skills" data-key="navSkills">Core Skills</a></li>
+                <li><a href="#tech-skills" data-key="navTechSkills">Technical Skills</a></li>
                 <li><a href="#contact" data-key="navContact">Contact</a></li>
                 <li><button id="lang-toggle" title="Switch Language"><i class="fas fa-globe"></i></button></li>
             </ul>
@@ -531,6 +602,31 @@
                 </div>
             </section>
             
+            <!-- Education Section -->
+            <section id="education" class="section">
+                <h2 data-key="educationTitle">Education</h2>
+                <div class="education-item">
+                    <div class="edu-header">
+                        <div>
+                            <div class="edu-title"><span data-key="edu2Title">Financial Accounting Diploma</span></div>
+                            <div class="edu-institution"><span data-key="edu2Uni">Ain Shams University</span></div>
+                        </div>
+                        <div class="edu-date"><span data-key="edu2Date">2015</span></div>
+                    </div>
+                    <p><span data-key="edu2Desc">Grade: Good</span></p>
+                </div>
+                <div class="education-item">
+                    <div class="edu-header">
+                        <div>
+                            <div class="edu-title"><span data-key="edu1Title">Bachelor of Commerce, Accounting</span></div>
+                            <div class="edu-institution"><span data-key="edu1Uni">Ain Shams University</span></div>
+                        </div>
+                        <div class="edu-date"><span data-key="edu1Date">2009</span></div>
+                    </div>
+                    <p><span data-key="edu1Desc">Grade: Good</span></p>
+                </div>
+            </section>
+
             <!-- Experience Section -->
             <section id="experience" class="section">
                 <h2 data-key="experienceTitle">Professional Experience</h2>
@@ -563,41 +659,105 @@
                         <div class="achievement-item"><i class="fas fa-check"></i><span data-key="exp1Ach3">Automated routine processes using AI and Microsoft Office tools.</span></div>
                     </div>
                 </div>
-                <!-- Experience Item 2: Sharp Laser -->
-                <div class="experience-item">
+                <!-- Other Experiences -->
+                 <div class="experience-item">
                     <div class="exp-header">
-                        <div>
-                            <div class="exp-title"><span data-key="exp2Title">General Accountant</span></div>
-                            <div class="exp-company"><span data-key="exp2Company">Sharp Laser</span></div>
-                        </div>
+                        <div><div class="exp-title"><span data-key="exp2Title">General Accountant</span></div><div class="exp-company"><span data-key="exp2Company">Sharp Laser</span></div></div>
                         <div class="exp-date"><span data-key="exp2Date">Mar 2015 – May 2015</span></div>
                     </div>
                 </div>
-                <!-- Experience Item 3: Protal Paints -->
                 <div class="experience-item">
                     <div class="exp-header">
-                        <div>
-                            <div class="exp-title"><span data-key="exp3Title">General Accountant</span></div>
-                            <div class="exp-company"><span data-key="exp3Company">Protal Paints</span></div>
-                        </div>
+                        <div><div class="exp-title"><span data-key="exp3Title">General Accountant</span></div><div class="exp-company"><span data-key="exp3Company">Protal Paints</span></div></div>
                         <div class="exp-date"><span data-key="exp3Date">Nov 2011 – Feb 2015</span></div>
                     </div>
                 </div>
-                <!-- Experience Item 4: Wasaya -->
                 <div class="experience-item">
                     <div class="exp-header">
-                        <div>
-                            <div class="exp-title"><span data-key="exp4Title">General Accountant</span></div>
-                            <div class="exp-company"><span data-key="exp4Company">Wasaya for Restaurant Management</span></div>
-                        </div>
+                        <div><div class="exp-title"><span data-key="exp4Title">General Accountant</span></div><div class="exp-company"><span data-key="exp4Company">Wasaya for Restaurant Management</span></div></div>
                         <div class="exp-date"><span data-key="exp4Date">Dec 2010 – Oct 2011</span></div>
                     </div>
                 </div>
             </section>
+
+            <!-- Key Projects Section -->
+            <section id="projects" class="section">
+                <h2 data-key="projectsTitle">Key Implemented Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-card-header"><i class="fas fa-chart-pie project-card-icon"></i><h3 class="project-card-title" data-key="proj1Title">Smart Financial Reports</h3></div>
+                        <div class="project-card-body">
+                            <p data-key="proj1Desc">Developed an automated system for preparing a comprehensive profitability report covering overall company performance and individual project profitability.</p>
+                            <div class="powerbi-link"><i class="fas fa-link"></i> <span data-key="proj1Link">Linked to an interactive Power BI Online report for real-time results tracking by management.</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-header"><i class="fas fa-cash-register project-card-icon"></i><h3 class="project-card-title" data-key="proj2Title">Cash Flow Analysis and Management</h3></div>
+                        <div class="project-card-body">
+                            <p data-key="proj2Desc">Prepared an integrated model to measure daily and weekly cash flows, linking them to bank accounts for real-time control over cash liquidity.</p>
+                            <div class="powerbi-link"><i class="fas fa-link"></i> <span data-key="proj2Link">Visualized in an automatically updated Power BI Online dashboard to monitor liquidity.</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-header"><i class="fas fa-boxes-stacked project-card-icon"></i><h3 class="project-card-title" data-key="proj3Title">Asset Tracking and Project Linking</h3></div>
+                        <div class="project-card-body">
+                            <p data-key="proj3Desc">Designed a precise system to monitor asset movement and automatically link them to implemented projects, issuing electronic transfer and delivery notes.</p>
+                            <div class="powerbi-link"><i class="fas fa-link"></i> <span data-key="proj3Link">Supported by Power BI Online reports illustrating distribution, movement, and delivery timelines.</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-header"><i class="fas fa-truck-moving project-card-icon"></i><h3 class="project-card-title" data-key="proj4Title">Equipment Management and Monitoring</h3></div>
+                        <div class="project-card-body">
+                            <p data-key="proj4Desc">Prepared analytical reports on equipment movement using Power BI Online, enabling management to track operational performance, downtime, and distribution efficiency.</p>
+                            <div class="powerbi-link"><i class="fas fa-link"></i> <span data-key="proj4Link">Provides daily, weekly, and quarterly reports for the equipment department.</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-header"><i class="fas fa-bullseye project-card-icon"></i><h3 class="project-card-title" data-key="proj5Title">Predictive Budgeting</h3></div>
+                        <div class="project-card-body">
+                            <p data-key="proj5Desc">Built a structure for quarterly and annual budgets using smart Excel models, linked to actual results to ensure financial discipline and control deviations.</p>
+                            <div class="powerbi-link"><i class="fas fa-link"></i> <span data-key="proj5Link">An interactive Power BI dashboard displays variances between planned and actual figures in real-time.</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-header"><i class="fas fa-university project-card-icon"></i><h3 class="project-card-title" data-key="proj6Title">Bank Account Management System</h3></div>
+                        <div class="project-card-body">
+                            <p data-key="proj6Desc">Developed an advanced system to manage bank account activity, including monitoring flows, forecasting balances, and linking with operational processes.</p>
+                            <div class="powerbi-link"><i class="fas fa-link"></i> <span data-key="proj6Link">Backed by a Power BI Online report showing expected cash balance and distribution across banks.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
-            <!-- Skills Section -->
+            <!-- Technical Skills Section -->
+            <section id="tech-skills" class="section">
+                 <h2 data-key="techSkillsTitle">Technical Skills & Software Usage</h2>
+                <div class="tech-skills-grid">
+                    <div class="tech-card">
+                        <div class="tech-card-header"><i class="fas fa-file-excel tech-card-icon" style="color: #1D6F42;"></i><h3 class="tech-card-title" data-key="ts1Title">Microsoft Excel (Advanced)</h3></div>
+                        <div class="tech-card-body">
+                            <p data-key="ts1Desc1">Mastery of advanced formulas, pivot tables, data analysis, and designing dynamic financial models.</p>
+                            <p data-key="ts1Desc2">Developing solutions using VBA (Macro programming) to automate repetitive tasks and improve operational efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-card-header"><i class="fas fa-chart-bar tech-card-icon" style="color: #F2C811;"></i><h3 class="tech-card-title" data-key="ts2Title">Power BI</h3></div>
+                        <div class="tech-card-body">
+                            <p data-key="ts2Desc">Designing interactive dashboards to display financial, operational, and technical data. Ability to accurately analyze performance and profitability indicators in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-card-header"><i class="fas fa-robot tech-card-icon" style="color: #2e88d8;"></i><h3 class="tech-card-title" data-key="ts3Title">Power Automate</h3></div>
+                        <div class="tech-card-body">
+                            <p data-key="ts3Desc">Building automated corporate workflows to connect data, send periodic reports, and generate documents electronically, including transfer vouchers and asset records.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Core Skills Section -->
             <section id="skills" class="section">
-                <h2 data-key="skillsTitle">Technical Skills & Expertise</h2>
+                <h2 data-key="skillsTitle">Core Skills & Expertise</h2>
                 <div class="skills-container">
                     <div class="skill-category">
                         <h3><i class="fas fa-cogs"></i><span data-key="skillCat1">Financial Systems & Digital Transformation</span></h3>
@@ -623,19 +783,6 @@
                 </div>
             </section>
 
-            <!-- Education Section -->
-            <section id="education" class="section">
-                <h2 data-key="educationTitle">Education</h2>
-                <div class="education-item">
-                    <div class="edu-header">
-                        <div>
-                            <div class="edu-title"><span data-key="eduTitle">Bachelor of Commerce, Accounting</span></div>
-                            <div class="edu-institution"><span data-key="eduUni">Ain Shams University</span></div>
-                        </div>
-                    </div>
-                    <p><span data-key="eduDesc">Graduated with a strong foundation in financial accounting, auditing, and corporate finance, specialized for the demands of the contracting and commercial sectors.</span></p>
-                </div>
-            </section>
         </main>
 
         <!-- Footer -->
@@ -665,9 +812,11 @@
                     linkedin: "LinkedIn",
                     location: "Nasr City, Cairo",
                     navAbout: "About",
-                    navExperience: "Experience",
-                    navSkills: "Skills",
                     navEducation: "Education",
+                    navExperience: "Experience",
+                    navProjects: "Key Projects",
+                    navSkills: "Core Skills",
+                    navTechSkills: "Technical Skills",
                     navContact: "Contact",
                     aboutMe: "About Me",
                     aboutHeader: "Chief Accountant",
@@ -680,6 +829,15 @@
                     stat2Desc: "Led enterprise-wide digital transformation initiatives, automating key accounting processes and enhancing data-driven decision-making capabilities across the organization.",
                     stat3Title: "Strategic Leadership",
                     stat3Desc: "Developed and executed financial strategies that supported the company's growth, while leading and mentoring the accounting team to achieve excellence.",
+                    educationTitle: "Education",
+                    edu1Title: "Bachelor of Commerce, Accounting",
+                    edu1Uni: "Ain Shams University",
+                    edu1Date: "2009",
+                    edu1Desc: "Grade: Good",
+                    edu2Title: "Financial Accounting Diploma",
+                    edu2Uni: "Ain Shams University",
+                    edu2Date: "2015",
+                    edu2Desc: "Grade: Good",
                     experienceTitle: "Professional Experience",
                     exp1Company: "EMAC Contracting (Kharafi Group)",
                     exp1Date: "June 2015 – Present",
@@ -702,16 +860,39 @@
                     exp4Title: "General Accountant",
                     exp4Company: "Wasaya for Restaurant Management",
                     exp4Date: "Dec 2010 – Oct 2011",
-                    skillsTitle: "Technical Skills & Expertise",
+                    projectsTitle: "Key Implemented Projects",
+                    proj1Title: "Smart Financial Reports",
+                    proj1Desc: "Developed an automated system for preparing a comprehensive profitability report covering overall company performance and individual project profitability.",
+                    proj1Link: "Linked to an interactive Power BI Online report for real-time results tracking by management.",
+                    proj2Title: "Cash Flow Analysis and Management",
+                    proj2Desc: "Prepared an integrated model to measure daily and weekly cash flows, linking them to bank accounts for real-time control over cash liquidity.",
+                    proj2Link: "Visualized in an automatically updated Power BI Online dashboard to monitor liquidity.",
+                    proj3Title: "Asset Tracking and Project Linking",
+                    proj3Desc: "Designed a precise system to monitor asset movement and automatically link them to implemented projects, issuing electronic transfer and delivery notes.",
+                    proj3Link: "Supported by Power BI Online reports illustrating distribution, movement, and delivery timelines.",
+                    proj4Title: "Equipment Management and Monitoring",
+                    proj4Desc: "Prepared analytical reports on equipment movement using Power BI Online, enabling management to track operational performance, downtime, and distribution efficiency.",
+                    proj4Link: "Provides daily, weekly, and quarterly reports for the equipment department.",
+                    proj5Title: "Predictive Budgeting",
+                    proj5Desc: "Built a structure for quarterly and annual budgets using smart Excel models, linked to actual results to ensure financial discipline and control deviations.",
+                    proj5Link: "An interactive Power BI dashboard displays variances between planned and actual figures in real-time.",
+                    proj6Title: "Bank Account Management System",
+                    proj6Desc: "Developed an advanced system to manage bank account activity, including monitoring flows, forecasting balances, and linking with operational processes.",
+                    proj6Link: "Backed by a Power BI Online report showing expected cash balance and distribution across banks.",
+                    techSkillsTitle: "Technical Skills & Software Usage",
+                    ts1Title: "Microsoft Excel (Advanced)",
+                    ts1Desc1: "Mastery of advanced formulas, pivot tables, data analysis, and designing dynamic financial models.",
+                    ts1Desc2: "Developing solutions using VBA (Macro programming) to automate repetitive tasks and improve operational efficiency.",
+                    ts2Title: "Power BI",
+                    ts2Desc: "Designing interactive dashboards to display financial, operational, and technical data. Ability to accurately analyze performance and profitability indicators in real-time.",
+                    ts3Title: "Power Automate",
+                    ts3Desc: "Building automated corporate workflows to connect data, send periodic reports, and generate documents electronically, including transfer vouchers and asset records.",
+                    skillsTitle: "Core Skills & Expertise",
                     skillCat1: "Financial Systems & Digital Transformation",
                     skillCat2: "Core Accounting & Finance",
                     skillCat3: "Professional Skills",
                     levelExpert: "Expert",
                     levelAdvanced: "Advanced",
-                    educationTitle: "Education",
-                    eduTitle: "Bachelor of Commerce, Accounting",
-                    eduUni: "Ain Shams University",
-                    eduDesc: "Graduated with a strong foundation in financial accounting, auditing, and corporate finance, specialized for the demands of the contracting and commercial sectors.",
                     footerTitle: "Let's Connect",
                     footerDesc: "I am always open to discussing new opportunities and challenges in the world of finance. Feel free to reach out to discuss how my expertise can benefit your organization.",
                     footerCopyright: "© 2025 Ahmed Mamdouh Zidan. All rights reserved.",
@@ -726,9 +907,11 @@
                     linkedin: "لينكد إن",
                     location: "مدينة نصر، القاهرة",
                     navAbout: "عني",
-                    navExperience: "الخبرة",
-                    navSkills: "المهارات",
                     navEducation: "التعليم",
+                    navExperience: "الخبرة",
+                    navProjects: "أبرز المشاريع",
+                    navSkills: "المهارات الأساسية",
+                    navTechSkills: "المهارات التقنية",
                     navContact: "تواصل",
                     aboutMe: "نبذة عني",
                     aboutHeader: "رئيس الحسابات",
@@ -741,6 +924,15 @@
                     stat2Desc: "قيادة مبادرات التحول الرقمي على مستوى المؤسسة، وأتمتة العمليات المحاسبية الرئيسية وتعزيز قدرات اتخاذ القرارات القائمة على البيانات في جميع أنحاء المنظمة.",
                     stat3Title: "القيادة الاستراتيجية",
                     stat3Desc: "تطوير وتنفيذ استراتيجيات مالية دعمت نمو الشركة، مع قيادة وتوجيه فريق المحاسبة لتحقيق التميز.",
+                    educationTitle: "التعليم",
+                    edu1Title: "بكالوريوس تجارة، قسم محاسبة",
+                    edu1Uni: "جامعة عين شمس",
+                    edu1Date: "2009",
+                    edu1Desc: "التقدير: جيد",
+                    edu2Title: "دبلومة المحاسبة المالية",
+                    edu2Uni: "جامعة عين شمس",
+                    edu2Date: "2015",
+                    edu2Desc: "التقدير: جيد",
                     experienceTitle: "الخبرة العملية",
                     exp1Company: "شركة إيماك للمقاولات (مجموعة الخرافي)",
                     exp1Date: "يونيو 2015 – حتى الآن",
@@ -763,16 +955,39 @@
                     exp4Title: "محاسب عام",
                     exp4Company: "شركة وصاية لإدارة المطاعم",
                     exp4Date: "ديسمبر 2010 – أكتوبر 2011",
-                    skillsTitle: "المهارات الفنية والخبرات",
+                    projectsTitle: "أبرز المشاريع المنفذة",
+                    proj1Title: "إعداد التقارير المالية الذكية",
+                    proj1Desc: "تطوير منظومة آلية لإعداد تقرير ربحية شامل يغطي أداء الشركة الإجمالي بالإضافة إلى ربحية كل مشروع على حدة.",
+                    proj1Link: "مرتبط بتقرير Power BI Online تفاعلي يمكّن الإدارة من المتابعة اللحظية للنتائج.",
+                    proj2Title: "تحليل وإدارة التدفقات النقدية",
+                    proj2Desc: "إعداد نموذج متكامل لقياس تدفقات النقد اليومية والأسبوعية وربطها بحسابات البنوك.",
+                    proj2Link: "مع عرض مرئي في لوحة تحكم Power BI Online تُحدث تلقائيًا لمتابعة السيولة.",
+                    proj3Title: "تتبع الأصول وربطها بالمشروعات",
+                    proj3Desc: "تصميم نظام دقيق لمراقبة حركة الأصول وربطها تلقائيًا بالمشروعات المنفذة.",
+                    proj3Link: "مدعوم بتقارير Power BI Online توضح التوزيع، الحركة، والتسليم الزمني.",
+                    proj4Title: "إدارة ومتابعة المعدات",
+                    proj4Desc: "إعداد تقارير تحليلية لحركة المعدات باستخدام Power BI Online.",
+                    proj4Link: "تتيح للإدارة تتبع الأداء التشغيلي، فترات التعطّل، وكفاءة التوزيع.",
+                    proj5Title: "إعداد الميزانيات التنبؤية",
+                    proj5Desc: "بناء هيكل ميزانيات ربع سنوية وسنوية باستخدام نماذج Excel الذكية.",
+                    proj5Link: "مع لوحة Power BI تفاعلية تعرض الفروقات بين المخطّط والفعلـي لحظيًا.",
+                    proj6Title: "نظام إدارة الحسابات البنكية",
+                    proj6Desc: "تطوير منظومة متقدمة لمتابعة حركة الحسابات البنكية وربطها بالتدفقات التشغيلية.",
+                    proj6Link: "مدعومة بتقرير Power BI Online يُظهر رصيد السيولة المتوقع وتوزيع النقد عبر البنوك.",
+                    techSkillsTitle: "المهارات التقنية واستخدام البرامج",
+                    ts1Title: "Microsoft Excel (متقدم)",
+                    ts1Desc1: "إتقان المعادلات المتقدمة، الجداول المحورية، تحليل البيانات، وتصميم النماذج المالية الديناميكية.",
+                    ts1Desc2: "تطوير حلول باستخدام VBA (برمجة الماكرو) لأتمتة المهام المتكررة وتحسين الكفاءة التشغيلية.",
+                    ts2Title: "Power BI",
+                    ts2Desc: "تصميم لوحات معلومات تفاعلية لعرض البيانات المالية، التشغيلية، والفنية. القدرة على تحليل الأداء ومؤشرات الربحية بدقة في الزمن الحقيقي.",
+                    ts3Title: "Power Automate",
+                    ts3Desc: "بناء تدفقات عمل مؤسسية مؤتمتة لربط البيانات، إرسال التقارير الدورية، وتوليد المستندات إلكترونيًا، بما في ذلك سندات التحويل وسجلات الأصول.",
+                    skillsTitle: "المهارات الأساسية والخبرات",
                     skillCat1: "الأنظمة المالية والتحول الرقمي",
                     skillCat2: "المحاسبة والمالية الأساسية",
                     skillCat3: "المهارات المهنية",
                     levelExpert: "خبير",
                     levelAdvanced: "متقدم",
-                    educationTitle: "التعليم",
-                    eduTitle: "بكالوريوس تجارة، قسم محاسبة",
-                    eduUni: "جامعة عين شمس",
-                    eduDesc: "تخرجت مع أساس نظري قوي في المحاسبة المالية، المراجعة، وتمويل الشركات، متخصص في متطلبات قطاع المقاولات والقطاعات التجارية.",
                     footerTitle: "لنتواصل",
                     footerDesc: "أنا منفتح دائمًا لمناقشة الفرص والتحديات الجديدة في عالم المال. لا تتردد في التواصل لمناقشة كيف يمكن لخبرتي أن تفيد مؤسستك.",
                     footerCopyright: "© 2025 أحمد ممدوح زيدان. جميع الحقوق محفوظة.",
